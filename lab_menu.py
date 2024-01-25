@@ -1,6 +1,7 @@
 from generatePrivateKey import *;
 from generatePublicKey import *;
 from decrypt import decrypt_file;
+from encrypt import encrypt_file; 
 
 def menu( public_key_file , private_key_file):
     print("private key file :" + private_key_file )
@@ -20,7 +21,9 @@ option = int(input ("Enter your option:"))
 
 while option !=6:
     if option == 1:
-        print("-1-")
+        print("-1- Encrypt Message")
+        file_to_encrypt_name = input("Enter the name of the file(BMP or Text File) you want to encrypt with it extension (ex :my_file_to_be_decrypted.bmp): ")
+        encrypt_file(file_to_encrypt_name,public_key_file)
     elif option == 2:
         print("-2- Decrypt message")
         file_to_decrypt_name = input("Enter the name of the file(BMP or Text File) you want to decrypt with it extension (ex :my_file_to_be_decrypted.bmp): ")
