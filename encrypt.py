@@ -60,7 +60,7 @@ def encrypt_file(filename, public_key_pem_path):
         max_data_size = (public_key.key_size // 8) - 66  # 66 bytes for OAEP padding with SHA-256
 
         # Read the contents of the file to be encrypted in binary mode
-        encrypted_filename = filename.replace('./Lab-SSI/', './Lab-SSI/Encrypted_')
+        encrypted_filename = "encrypted_" + filename
 
         # Read and encrypt the file
         with open(filename, 'rb') as file_to_encrypt, open(encrypted_filename, 'wb') as encrypted_file:
@@ -76,8 +76,8 @@ def encrypt_file(filename, public_key_pem_path):
         
         print(f"File encrypted successfully. Encrypted file: {encrypted_filename}")
         return encrypted_filename
-    elif filename.endswith('txt'):
-        encrypted_filename_txt = filename.replace('./Lab-SSI/', './Lab-SSI/EncryptedText_')
+    elif filename.endswith('.txt'):
+        encrypted_filename_txt = "encrypted_" + filename
         with open(filename, 'rb') as file_txt :
             with open(encrypted_filename_txt, 'wb') as encrypted_file:
                 file_data_txt = file_txt.read()
@@ -91,4 +91,4 @@ def encrypt_file(filename, public_key_pem_path):
 #encrypt_file('./Lab-SSI/TextFile.txt', './Lab-SSI/public_key.pem')
 #encrypt('./Lab-SSI/plaintext-ue.bmp', './Lab-SSI/public_key.pem')
 
-### envoie du fichier encrypter par mail 
+### envoie du fichier encrypter par mail
